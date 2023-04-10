@@ -6,7 +6,10 @@ const app = express()
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/camp-finder');
+  await mongoose.connect('mongodb://127.0.0.1:27017/camp-finder', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 }
 
 app.set('view engine', 'ejs')
