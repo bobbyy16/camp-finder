@@ -1,2 +1,1 @@
 # camp-finder 
-.
