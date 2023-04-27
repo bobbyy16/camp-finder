@@ -1,4 +1,5 @@
 module.exports.cities = [
+
     {
         "name": "Mumbai",
         "state": "Maharashtra",
