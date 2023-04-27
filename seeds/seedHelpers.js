@@ -21,6 +21,13 @@ module.exports.descriptions = [
     "City",
     "lifelong"
 ]
+
+
+
+
+
+
+
 module.exports.places = [
     "Flats",
     "village",

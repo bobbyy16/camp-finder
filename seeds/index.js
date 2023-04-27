@@ -1,17 +1,20 @@
 const mongoose = require('mongoose');
 const { descriptions, places } = require('./seedhelpers');
 const Campground = require('../models/campground');
-const { cities } = require('./cities');
+const { cities } = require('./citiesLess');
+const db = process.env.DB_URL
 mongoose.set('strictQuery', true);
 
 console.log(cities[0].latitude+ "  "+ cities[0].longitude)
               
+
 main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/camp-finder');
-}
 
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
 
 const size = cities.length;
 console.log(size);
@@ -32,7 +35,7 @@ const seedDB = async () => {
                 // title : `${sample(descriptions)} ${sample.places}`,
                 location: `${cities[randomNum].name}`,
                 description: ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non reiciendis odit dolorum ducimus repellendus quaerat cumque est soluta placeat quos autem doloremque nobis porro, temporibus fugiat deserunt! Ex, inventore libero',
-                price: Math.floor(Math.random() * 100),
+                price: Math.floor(Math.random() * 1000),
                 geometry: {
                     type: 'Point',
                     coordinates: [cities[randomNum].longitude, cities[randomNum].latitude]
@@ -71,3 +74,4 @@ seedDB()
     .then(() => {
         mongoose.connection.close();
     });
+
