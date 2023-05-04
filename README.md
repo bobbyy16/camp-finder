@@ -1,3 +1,3 @@
-# camp-finder
+# camp-finder  .
 
 A simple campgorund finding app
